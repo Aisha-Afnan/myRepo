@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <title>Metric Converter</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap');
+
+        body {
+            background-color: #213a57;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            font-weight: bold;
+            color: #14919b;
+            margin-top: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .converter {
+            border: 2px;
+            box-shadow: 2px;
+            /* background-color: #f9f9f9; */
+            padding-left: 20px;
+            padding-top: 10px;
+            margin-left: 20px;
+        }
+
+        .converter,
+        .container-field {
+            border: 2px;
+            box-shadow: 2px;
+            background-color: teal;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container-field {
+            border: 2px;
+            box-shadow: 2px;
+            /* background-color: #f9f9f9; */
+            height: 400px;
+            width: 100%;
+            padding-left: 20px;
+            padding-top: 10px;
+            margin-right: 20px;
+        }
+
+        .label,
+        select,
+        input {
+            display: block;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #14919b;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            color: #fff;
+            justify-content: center;
+        }
+
+        .intro {
+            margin-top: 25px;
+            padding-left: 20px;
+        }
+
+        .intro h2 {
+            color: #14919b;
+        }
+
+        .intro h3 {
+            color: #14919b;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 150px;
+            color: #fff;
+        }
+
+        @media screen and (min-width: 768px) {
+            main {
+                flex-direction: row;
+            }
+
+            .converter,
+            .container-field {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Length Converter</h1>
+    </header>
+
+    <div class="row mx-0 px-0">
+        <div class="converter col-md-6">
+            <h2>Length Converter</h2>
+            <label for="value">Value:</label>
+            <input type="number" id="value" placeholder="Enter value">
+
+            <label for="fromUnit">From:</label>
+            <select id="fromUnit">
+                <option selected value="Inches">Inches</option>
+                <option value="Millimeters">Millimeters</option>
+                <option value="Feet">Feet</option>
+                <option value="Meters">Meters</option>
+                <option value="Yards">Yards</option>
+                <option value="Miles">Miles</option>
+                <option value="Kilometers">Kilometers</option>
+            </select>
+
+            <label for="toUnit">To:</label>
+            <select id="toUnit">
+                <option value="Inches">Inches</option>
+                <option selected value="Millimeters">Millimeters</option>
+                <option value="Feet">Feet</option>
+                <option value="Meters">Meters</option>
+                <option value="Yards">Yards</option>
+                <option value="Miles">Miles</option>
+                <option value="Kilometers">Kilometers</option>
+            </select>
+
+            <button id="convertButton">Convert</button>
+
+            <div id="result">
+                <h2>Result:</h2>
+            </div>
+        </div>
+
+        <div class="container-field col-md-6">
+            <div id="OutputInfo" class="output-information output-box">
+                <h1>Conversion Factors</h1>
+                <ul>
+                    <li>1 Inch(in) = 25.4 Millimeters(mm)</li>
+                    <li>1 Foot(ft) = 0.305 Meters(m)</li>
+                    <li>1 Yard(yd) = 0.914 Meters(m)</li>
+                    <li>1 Mile(mi)= 1.609 Kilometers(km)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="intro">
+            <!-- <h2>Metric Measurements Of Length</h2>
+            <p>Metric measurements of length are widely used around the world due to their simplicity and consistency. The
+                base unit of length in the metric system is the meter (m), which is defined as the distance traveled by
+                light in a vacuum in 1/299,792,458 second. This fundamental unit can be easily converted into smaller or
+                larger units by using prefixes.
+                <br>
+                <br>
+                For smaller measurements, the most commonly used metric units are the centimeter (cm) and the millimeter
+                (mm). A centimeter is equal to one-hundredth of a meter, while a millimeter is one-thousandth of a meter.
+                These units are often used for precise measurements, such as the length of objects or the thickness of
+                materials.
+                <br>
+                <br> 
+                Larger measurements of length are expressed in kilometers (km) or meters (m). A kilometer is equal to one
+                thousand meters, making it suitable for measuring longer distances, such as the length of roads or the size
+                of countries. Meters are commonly used for everyday measurements, such as the height of a person or the
+                width of a room.
+                <br>
+                <br>
+                The metric system's decimal-based nature makes it easy to convert between different units of length by
+                simply moving the decimal point. This simplicity, along with its widespread adoption, has made the metric
+                system the preferred choice for scientific, industrial, and everyday measurements across the globe.
+                <br>
+                <br>
+                <h3>Imperial / American measurements</h3>
+                Imperial or American measurements of length are commonly used in the United States and a few other countries
+                that have not adopted the metric system. These measurements are based on historical units that were used in
+                the British Empire and have since been standardized.
+                <br>
+                <br>
+                The most commonly used unit of length in the Imperial system is the inch, which is equivalent to 2.54
+                centimeters. Twelve inches make up a foot, and three feet make up a yard. The yard is often used for
+                measuring longer distances, such as in construction or landscaping.
+                <br>
+                <br>
+                For larger measurements, the mile is used. A mile is equal to 1,760 yards or approximately 1.6 kilometers.
+                Miles are commonly used for measuring distances in road travel and aviation.
+                <br>
+                <br>
+                While the Imperial system of measurements is still widely used in the United States, many other countries
+                have transitioned to the metric system, which is based on units of ten.
+                <br>
+                <br>
+                <h3>What is a Meter?</h3>
+                Meters, as a unit of measurement, are widely recognized and used for measuring length in the metric system.
+                The meter is defined as the distance traveled by light in a vacuum in 0.000000003335641 seconds. This
+                definition provides a precise and consistent standard for measuring length, making the meter a fundamental
+                unit in the International System of Units (SI).
+                <br>
+                <br>
+                The meter is commonly used in various fields, including science, engineering, and everyday life. It provides
+                a convenient and easily understandable way to quantify distances, whether it's measuring the length of a
+                room, the height of a building, or the distance between two cities. The use of meters allows for accurate
+                and standardized measurements across different countries and disciplines, promoting consistency and
+                facilitating international communication and trade.
+                <br>
+                <br>
+                <h3>What is a foot?</h3>
+                Feet, as a unit of length, is commonly used in the United States and a few other countries that have not
+                fully adopted the metric system. One foot is equal to 12 inches or 0.3048 meters. The term "foot" is derived
+                from the human foot, which was historically used as a reference for measuring length.
+                <br>
+                <br>
+                The use of feet as a unit of measurement dates back to ancient civilizations, where the length of a foot was
+                often based on the (albeit large) size of a person's foot. Over time, the measurement became standardized,
+                and the foot was defined as a specific fraction of other units, such as the yard or the meter.
+                <br>
+                <br>
+                <h3>What is an inch?</h3>
+                An inch is a unit of length commonly used in the United States and other countries that have not adopted the
+                metric system. It is defined as 1/12th of a foot or 2.54 centimeters. The inch is subdivided into smaller
+                units such as the half-inch, quarter-inch, and eighth-inch, which are often used in construction and
+                woodworking.
+                <br>
+                <br>
+                The inch has a long history and was originally based on the width of a man's thumb. Over time, it has been
+                standardized and is now defined in terms of the metric system. Despite the widespread adoption of the metric
+                system in most parts of the world, the inch is still commonly used in the United States for everyday
+                measurements such as the length of a pencil or the size of a television screen.
+                <br>
+                <br>
+                <h3>What is a centimeter?</h3>
+                A centimeter is a unit of length in the metric system, commonly used to measure small distances. It is
+                abbreviated as "cm" and is equal to one hundredth of a meter. The centimeter is a versatile unit that is
+                widely used in everyday life, especially for measuring the length of objects such as pencils, books, or even
+                the height of a person.
+                <br>
+                <br>
+                The centimeter is a convenient unit for measuring small distances because it provides a more precise
+                measurement than larger units like meters or kilometers. It is also commonly used in scientific and
+                engineering fields where accuracy is crucial. For example, in the field of medicine, centimeters are used to
+                measure the size of tumors or wounds, ensuring precise and consistent measurements.
+            </p> -->
+            <h2>Introduction of Length</h2>
+            <p>The meter was officially defined during the French Revolution in the late 18th century. The idea was
+                proposed by the French Academy of Sciences in 1791 as a way to create a universal system of measurement.
+                The original definition was based on a fraction of the Earth’s meridian: one meter was intended to be
+                one ten-millionth of the distance from the North Pole to the Equator. This definition was later refined,
+                and the meter was eventually redefined based on the wavelength of light emitted by a specific isotope of
+                krypton in 1983, which is how we measure it today.</p>
+            <h2>Metric Measurements of Length</h2>
+            <p>Metric measurements are widely used for their simplicity and consistency. The base unit is the meter (m),
+                defined as the distance light travels in a vacuum in 1/299,792,458 seconds. Common smaller units include
+                the centimeter (cm) and millimeter (mm), while larger units include kilometers (km).
+                <br>
+                The metric system's decimal nature allows for easy conversions, making it preferred for scientific and
+                everyday use worldwide.
+                <br>
+            <h3>Imperial Measurements</h3>
+            In the U.S., the Imperial system is used, with the inch (2.54 cm) as the basic unit. Twelve inches make a
+            foot, and 1,760 yards make a mile. While still common in the U.S., many countries have adopted the metric
+            system.
+            <br>
+            <br>
+            <h3>Key Units</h3>
+            The meter is essential in various fields for accurate measurements. A foot is 0.3048 meters, and an inch is
+            2.54 cm, with both widely used in everyday contexts. The centimeter is ideal for measuring small distances,
+            providing precision in fields like medicine and engineering.
+            </p>
+
+        </div>
+    </div>
+
+
+    <footer>
+        <p>&copy; 2024 Metric Conversion. All Rights Reserved</p>
+    </footer>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#convertButton').click(function () {
+            var value = parseFloat($('#value').val());
+            var fromUnit = $('#fromUnit').val();
+            var toUnit = $('#toUnit').val();
+
+            if (isNaN(value)) {
+                $('#result').text('Please enter a valid number.');
+                return;
+            }
+
+            if (fromUnit === toUnit) {
+                $('#result').text(value + ' ' + fromUnit);
+                return;
+            }
+
+            var result;
+
+            if (fromUnit === 'Inches' && toUnit === 'Millimeters') {
+                result = value * 25.4;
+            } else if (fromUnit === 'Millimeters' && toUnit === 'Inches') {
+                result = value / 25.4;
+            }
+
+            if (fromUnit === 'Feet' && toUnit === 'Meters') {
+                result = value * 0.305;
+            } else if (fromUnit === 'Meters' && toUnit === 'Feet') {
+                result = value / 0.305;
+            }
+
+            if (fromUnit === 'Yards' && toUnit === 'Meters') {
+                result = value * 0.914;
+            } else if (fromUnit === 'Meters' && toUnit === 'Yards') {
+                result = value / 0.914;
+            }
+
+            if (fromUnit === 'Miles' && toUnit === 'Kilometers') {
+                result = value * 1.609;
+            } else if (fromUnit === 'Kilometers' && toUnit === 'Miles') {
+                result = value / 1.609;
+            }
+
+            $('#result').text(result + ' ' + toUnit);
+        });
+    });
+
+</script>
+
+</html>
